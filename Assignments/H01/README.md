@@ -1,9 +1,11 @@
-***Dulan Dunusinghe**
-***Date: 02-04-2020**
-***Class: 2143 OOP**
+**Dulan Dunusinghe**
+**Date: 02-04-2020**
+**Class: 2143 OOP**
 * *Definitions*
 **• Abstraction**
 * Abstraction displays the more essential information and leaves out the details that refer to other less relevant parts of the object. For example, a vehicle can prove an abstraction. When we drive, we know how to drive a car, and we know that pressing the accelerator *will increase the speed of car, while pressing the brake will terminate movement. However, very few people actually know how a vehicle works or know what all its components are.
+
+
 **• Attributes / Properties**
 An attribute acts as an instruction to the compiler which provides additional information about the code for optimization purposes and enforcing certain conditions on it. It is an object’s data item, and it is stored in a member variable.
 **• Class**
