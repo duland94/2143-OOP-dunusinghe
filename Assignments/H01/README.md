@@ -2,19 +2,30 @@
 **Date: 02-04-2020**
 **Class: 2143 OOP**
 * *Definitions*
+
 **• Abstraction**
+
 * Abstraction displays the more essential information and leaves out the details that refer to other less relevant parts of the object. For example, a vehicle can prove an abstraction. When we drive, we know how to drive a car, and we know that pressing the accelerator *will increase the speed of car, while pressing the brake will terminate movement. However, very few people actually know how a vehicle works or know what all its components are.
 
 
 **• Attributes / Properties**
+
 An attribute acts as an instruction to the compiler which provides additional information about the code for optimization purposes and enforcing certain conditions on it. It is an object’s data item, and it is stored in a member variable.
+
 **• Class**
+
 *A class is a programmer-defined data type, which holds its own data members and member functions. These functions can be accessed and used by creating an instance of that class. A C++ class is like a blueprint for an object. It also describes how the objects generated from it will look. As an example, an animal class. There are numerous animals, but they all have similar features such as legs, ears, color, weight etc. In this case, the class will be animal, and the properties will be legs, ears, color and weight.
+
 **• Class Variable**
+
 A variable is variable within a class that is exclusive to the class.
+
 **• Composition**
+
 *Creating objects of your existing class inside a new class is called composition, because the new class is composed of objects of existing classes.
+
 **• Encapsulation**
+
 *Encapsulation refers to binding together data and the functions that manipulate them. It is simply putting together an object’s data and procedures. For example, having different departments in a workplace, and one section wanting to access data from another section.
 **• Friends**
 *A friend function of a class is a function that is defined outside that class scope, but it has the ability to access all members of the class that are private and protected. A friend is usually a function, function template, or member function, or a class or class template.
