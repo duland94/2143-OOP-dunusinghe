@@ -9,31 +9,31 @@
 
 ### card 
 
-<https://github.com/duland94/2143-OOP-dunusinghe/blob/master/Assignments/H04/images/Card.png>
+<img src="https://github.com/duland94/2143-OOP-dunusinghe/blob/master/Assignments/H04/images/Card.png" width="200">
 
 ### Bank
 
-<https://github.com/duland94/2143-OOP-dunusinghe/blob/master/Assignments/H04/images/Bank.png>
+<img src="https://github.com/duland94/2143-OOP-dunusinghe/blob/master/Assignments/H04/images/Bank.png" width="200">
 
 ### Deck
 
-<https://github.com/duland94/2143-OOP-dunusinghe/blob/master/Assignments/H04/images/Deck.png>
+<img src="https://github.com/duland94/2143-OOP-dunusinghe/blob/master/Assignments/H04/images/Deck.png" width="200">
 
 ### Hand
 
-<https://github.com/duland94/2143-OOP-dunusinghe/blob/master/Assignments/H04/images/Hand.png>
+<img src="https://github.com/duland94/2143-OOP-dunusinghe/blob/master/Assignments/H04/images/Hand.png" width="200">
 
 ### Player
 
-<https://github.com/duland94/2143-OOP-dunusinghe/blob/master/Assignments/H04/images/Player.png>
+<img src="https://github.com/duland94/2143-OOP-dunusinghe/blob/master/Assignments/H04/images/Player.png" width="200">
 
 ### poker Game
 
-<https://github.com/duland94/2143-OOP-dunusinghe/blob/master/Assignments/H04/images/Poker%2520Game.png>
+<img src="https://github.com/duland94/2143-OOP-dunusinghe/blob/master/Assignments/H04/images/Poker%2520Game.png" width="200">
 
 ### Whole Diagram
 
-<https://github.com/duland94/2143-OOP-dunusinghe/blob/master/Assignments/H04/images/WholeDiagram.png>
+<img src="https://github.com/duland94/2143-OOP-dunusinghe/blob/master/Assignments/H04/images/WholeDiagram.png" width="200">
 
 
 
