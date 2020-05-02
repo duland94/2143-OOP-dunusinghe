@@ -36,8 +36,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 //                   
-// Author:           Shaun Partridge
-// Email:            spartridgeb15@gmail.com
+// Author:           Dulan Dunusinghe
 // Label:            H05
 // Title:            Playing Card Class
 // Course:           CMPS 2143
@@ -45,9 +44,7 @@
 //
 // Description:
 //       This program will create playing cards that can be used for a variety
-//       of card games. This program will also be overloading the ostream
-//       operator "<<" to print cards, along with boolean operators to compare
-//       cards to one another.
+//       of card games.
 //
 // Usage:
 //       This program will create playing cards for the game of goldfish.
