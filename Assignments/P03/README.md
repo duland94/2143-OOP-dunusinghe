@@ -6,7 +6,7 @@
 
 **COVID-19 Design**
 
-*Virus*
+##Virus
 
 <img src="https://github.com/duland94/2143-OOP-dunusinghe/blob/master/Assignments/P03/images/virus.PNG">
 
