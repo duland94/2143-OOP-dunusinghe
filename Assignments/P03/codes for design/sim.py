@@ -1,5 +1,24 @@
-#!/usr/bin/env python3
 
+#///////////////////////////////////////////////////////////////////////////////
+#//                   
+#// Author:           Dulan Dunusinghe
+#// Label:            P03
+#// Title:            COVID-19 Design
+#// Course:           CMPS 2143
+#// Semester:         Spring 2020
+#//
+#// Description:
+//       
+//       
+#//
+#// Usage:
+#//       
+#// Files: 
+#//
+#//        
+#/////////////////////////////////////////////////////////////////////////////////
+
+#!/usr/bin/env python3
 # Import and initialize the pygame library
 import pygame
 import random
