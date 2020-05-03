@@ -6,7 +6,7 @@
 #// Title:            COVID-19 Design
 #// Course:           CMPS 2143
 #// Semester:         Spring 2020
-#//
+#// 
 #// Description:
 #//       
 #//       
@@ -19,6 +19,7 @@
 #/////////////////////////////////////////////////////////////////////////////////
 
 #!/usr/bin/env python3
+
 # Import and initialize the pygame library
 import pygame
 import random
@@ -28,6 +29,8 @@ from datetime import datetime
 class simulation():
     def __init__(self):
         self.days = 1
+        self.infected = 0
+        self.deaths = 0
         self.maxdays = 50
 
     # Simple function that will advance a day every 60 ticks
@@ -50,6 +53,7 @@ class simulation():
         # a list to hold all of our people sprites
         population = []
 
+        # Set our font
         font = pygame.font.Font('./text/Roboto-Black.ttf', 20)
 
         # loop N times
@@ -62,7 +66,7 @@ class simulation():
             # list[-1] give you the last item
             sprites_list.add(population[-1])  
 
-        clock=pygame.time.Clock()
+        clock=pygame.time.Clock() # Used to control fps
         seconds = 0
 
         # Run until the user asks to quit
@@ -109,8 +113,15 @@ class simulation():
 
             sprites_list.draw(screen)
 
+            # We will count the number infected each time
+            for i in range(len(population)):
+                if population[i].state == "infected":
+                    self.infected += 1
+
             # Render the text and put it in a text box
-            text = font.render("Day " + str(self.days), True, (30, 255, 30), (30, 30, 255))
+            text = font.render("Day " + str(self.days) + " Infected: " + str(self.infected) 
+            + " Deaths: " + str(self.deaths), 
+            True, (30, 255, 30), (30, 30, 255))
             textbox = text.get_rect()
 
             # Set the boundaries for the textbox
@@ -126,17 +137,22 @@ class simulation():
             # Advance a day every 60 ticks
             if seconds % 60 == 0:
                 self.set_days()
+
                 # Everyone infected has a chance to die once a day
                 for i in range(len(population)):
                     if population[i].death() == True and population[i].state == "infected":
                         sprites_list.remove(population[i])
+                        self.deaths += 1
 
             #Number of frames per second e.g. 60
-            clock.tick(40)
+            clock.tick(40) # 40 fps
 
             Config.myClock += 1
             seconds += 1
+            self.infected = 0
 
+            # If the number of days reaches a certain value, 
+            # stop the sim
             if self.days > self.maxdays:
                 running = False
 
@@ -145,17 +161,18 @@ class simulation():
 # infection radius, and more.
 class virus():
     days_infected = 14
-    travel_radius = 10
     fatality_rate = 5 # percent out of 100
     infection_rate = 80 # used when people touch
+
+# Class for creating an SIR model
+class SIR_Model():
+    # This isn't part of an constructed object, but is here for organization
     SIR_images = {
         "yellow":  "./images/pac_yellow_30x30.png",
         "red" :  "./images/pac_red_30x30.png",
         "green":  "./images/pac_green_30x30.png",
     }
 
-# Class for creating an SIR model
-class SIR_Model():
     def __init__(self):
         self.initial_infect = .20
         self.recovered_prob = .10
@@ -175,9 +192,8 @@ class SIR_Model():
 # This class contains stat info about the game and its assets
 class Config:
     #no constructor
-    width = 250
-    height = 250
-    social_distancing = False
+    width = 400
+    height = 350
     population_count = 16
     sprite_width = 15
     sprite_height = 15
@@ -245,7 +261,7 @@ class Person(pygame.sprite.Sprite):
             self.dayinfected = -999
 
         # Load the image corresponding to the state of person
-        self.image = pygame.image.load(virus.SIR_images[self.color])
+        self.image = pygame.image.load(SIR_Model.SIR_images[self.color])
         
         # Make sure the picture is to correct scale
         self.image = pygame.transform.scale(self.image,
@@ -306,6 +322,10 @@ class Person(pygame.sprite.Sprite):
         elif self.dy > 0:
             self.rect.y += self.speed
 
+    # This function checks the hitboxes of the sprites, and will 
+    # return a boolean that tells whether a collision has occured
+    # or not. It will also know the general direction the collision
+    # occured at.
     def checkCollide(self, other):
         sides_contacted = {
             "top": False,
@@ -336,23 +356,24 @@ class Person(pygame.sprite.Sprite):
             other.state == "infected"):
                 self.state = "infected"
                 self.color = "red"
-                self.image = pygame.image.load(virus.SIR_images[self.color])
+                self.image = pygame.image.load(SIR_Model.SIR_images[self.color])
                 self.image = pygame.transform.scale(self.image,(self.width, self.height))
 
             if (infect_chance < virus.infection_rate and other.state == "susceptible" and 
             self.state == "infected"):
                 other.state = "infected"
                 other.color = "red"
-                other.image = pygame.image.load(virus.SIR_images[other.color])
+                other.image = pygame.image.load(SIR_Model.SIR_images[other.color])
                 other.image = pygame.transform.scale(other.image,(other.width, other.height))
 
             
-            self.changeDirection(sides_contacted)
+            self.changeDirection(sides_contacted) # People will move if they touch
 
             return True
 
         return False
 
+    # This function makes sure the sprites won't travel beyond the borders of the screen
     def checkWalls(self):
         sides = {"top": False, "bottom": False, "left": False, "right": False}
 
@@ -367,6 +388,9 @@ class Person(pygame.sprite.Sprite):
 
         return sides
     
+    # Every day, if someone is infected, this function will randomly determine
+    # if that person dies. If they are dead, they are removed from the 
+    # game screen
     def death(self):
         dead = False
         die_chance = random.randint(0, 100)
@@ -381,20 +405,22 @@ class Person(pygame.sprite.Sprite):
     def recover(self, day):
         if day - self.dayinfected > virus.days_infected:
             self.state = "recovered"
-            self.image = pygame.image.load(virus.SIR_images["green"])
+            self.image = pygame.image.load(SIR_Model.SIR_images["green"])
             self.image = pygame.transform.scale(self.image,
                                                 (self.width, self.height))
             
 
 #__________________________________________________________________________
-
+# This lets us run the program in a command line 
 if __name__=='__main__':
 
+    # Create instances of sim and model classes
     sim = simulation()
     model = SIR_Model()
-    model.make_model()
 
-    sim.runsim(model)
+    model.make_model() # Used to make SIR model
+
+    sim.runsim(model) # Run Corona Simulation
 
     # Done! Time to quit.
     pygame.quit()
