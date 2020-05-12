@@ -9,4 +9,6 @@
 | 06-H03|  [H03](https://github.com/duland94/2143-OOP-dunusinghe/tree/master/Assignments/H03)| Overloading Operators |
 | 07-H04|  [H04](https://github.com/duland94/2143-OOP-dunusinghe/tree/master/Assignments/H04)| Poker Game Design| 
 | 08-H05|  [H05](https://github.com/duland94/2143-OOP-dunusinghe/tree/master/Assignments/H05)| Poker Game |
-| 09-H06|  [P01](https://github.com/duland94/2143-OOP-dunusinghe/tree/master/Assignments/P01)| War Game | 
+| 09-H06|  [P01](https://github.com/duland94/2143-OOP-dunusinghe/tree/master/Assignments/P01)| War Game |
+| 09-H07|  [P03](https://github.com/duland94/2143-OOP-dunusinghe/tree/master/Assignments/P03)| COVID-19 Design | 
+| 09-H08|  [final_project](https://github.com/duland94/2143-OOP-dunusinghe/tree/master/Assignments/final_project)| Final Project |
